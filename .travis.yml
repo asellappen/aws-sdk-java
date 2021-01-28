@@ -1,5 +1,6 @@
 language: java
 sudo: required
+dist: focal
 arch:
    # - amd64
     - ppc64le
@@ -9,8 +10,8 @@ addons:
   hostname: javasdk
 # The cross product of the jdk and env settings form the matrix of builds Travis will run.
 jdk:
-  - openjdk7
-  - oraclejdk7
+ # - openjdk7
+ # - oraclejdk7
   - oraclejdk8
 env:
   - MODULES_TO_SKIP=\!aws-java-sdk-osgi MAVEN_OPTS=-XX:MaxPermSize=256m
@@ -32,6 +33,6 @@ install: /bin/true
 sudo: required
 dist: precise
 before_script: 
-- sudo chmod 777 /proc/sys/net/ipv6/conf/all/
+#- sudo chmod 777 /proc/sys/net/ipv6/conf/all/
 - sudo sh -c 'echo 0 > /proc/sys/net/ipv6/conf/all/disable_ipv6'
 script: mvn install -Dhttps.protocols=TLSv1.2 -pl ${MODULES_TO_SKIP}
