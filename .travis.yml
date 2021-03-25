@@ -1,18 +1,29 @@
+# ----------------------------------------------------------------------------
+#
+# Package             : aws-sdk-java
+# Source Repo         : https://github.com/aws/aws-sdk-java.git
+# Travis Job Link     : https://travis-ci.com/github/asellappen/aws-sdk-java.git/
+# Created travis.yml  : Yes
+# Maintainer          : Arumugam N S <asellappen@yahoo.com> / Priya Seth<sethp@us.ibm.com>
+#
+# Script License      : Apache License, Version 2 or later
+#
+# ----------------------------------------------------------------------------
 language: java
-dist: bionic
-sudo: required
+
 arch:
-   # - amd64
-    - ppc64le
+ - amd64
+ - ppc64le
+ 
 addons:
   hosts:
     - javasdk
   hostname: javasdk
 # The cross product of the jdk and env settings form the matrix of builds Travis will run.
 jdk:
- # - openjdk7
-  - oraclejdk10
-  - oraclejdk13
+  - openjdk7
+  - oraclejdk7
+  - oraclejdk8
 env:
   - MODULES_TO_SKIP=\!aws-java-sdk-osgi MAVEN_OPTS=-XX:MaxPermSize=256m
   - MODULES_TO_SKIP=\!aws-java-sdk-osgi,\!aws-java-sdk-code-generator,\!aws-java-sdk-codegen-maven-plugin,\!aws-java-sdk-opensdk MAVEN_OPTS=-XX:MaxPermSize=256m
@@ -32,5 +43,5 @@ notifications:
 install: /bin/true
 sudo: required
 dist: precise
-before_script:  sudo sh -c 'echo 0 > /proc/sys/net/ipv6/conf/all/disable_ipv6'
+before_script: sudo sh -c 'echo 0 > /proc/sys/net/ipv6/conf/all/disable_ipv6'
 script: mvn install -Dhttps.protocols=TLSv1.2 -pl ${MODULES_TO_SKIP}
