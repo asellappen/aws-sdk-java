@@ -37,8 +37,9 @@ matrix:
       env: MODULES_TO_SKIP=\!aws-java-sdk-osgi MAVEN_OPTS=-XX:MaxPermSize=256m
     - jdk: oraclejdk8
       env: MODULES_TO_SKIP=\!aws-java-sdk-osgi,\!aws-java-sdk-code-generator,\!aws-java-sdk-codegen-maven-plugin,\!aws-java-sdk-opensdk MAVEN_OPTS=-XX:MaxPermSize=256m
+    #ppc64le not supporting openjdk7 & oraclejdk7,amd64 not supporting for openjdk8, hence excluding.
     - jdk: openjdk8
-      env: MODULES_TO_SKIP=\!aws-java-sdk-osgi MAVEN_OPTS=-XX:MaxPermSize=256m
+      arch: amd64
     - jdk: openjdk7
       arch: ppc64le
     - jdk: oraclejdk7
