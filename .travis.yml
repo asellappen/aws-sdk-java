@@ -22,6 +22,8 @@ addons:
 # The cross product of the jdk and env settings form the matrix of builds Travis will run.
 jdk:
   - openjdk7
+  - openjdk8
+  - openjdk11
   - oraclejdk7
   - oraclejdk8
 env:
@@ -36,7 +38,11 @@ matrix:
       env: MODULES_TO_SKIP=\!aws-java-sdk-osgi MAVEN_OPTS=-XX:MaxPermSize=256m
     - jdk: oraclejdk8
       env: MODULES_TO_SKIP=\!aws-java-sdk-osgi,\!aws-java-sdk-code-generator,\!aws-java-sdk-codegen-maven-plugin,\!aws-java-sdk-opensdk MAVEN_OPTS=-XX:MaxPermSize=256m
-
+    - jdk: openjdk7
+      arch: ppc64le
+    - jdk: oraclejdk7
+      arch: ppc64le
+      
 notifications:
   email:
     - github-awsforjava@amazon.com
