@@ -3,7 +3,7 @@
 # Package             : aws-sdk-java
 # Source Repo         : https://github.com/aws/aws-sdk-java.git
 # Travis Job Link     : https://travis-ci.com/github/asellappen/aws-sdk-java.git/
-# Created travis.yml  : Yes
+# Created travis.yml  : No
 # Maintainer          : Arumugam N S <asellappen@yahoo.com> / Priya Seth<sethp@us.ibm.com>
 #
 # Script License      : Apache License, Version 2 or later
