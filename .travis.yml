@@ -39,9 +39,9 @@ matrix:
       env: MODULES_TO_SKIP=\!aws-java-sdk-osgi,\!aws-java-sdk-code-generator,\!aws-java-sdk-codegen-maven-plugin,\!aws-java-sdk-opensdk MAVEN_OPTS=-XX:MaxPermSize=256m
     - jdk: openjdk8
       env: MODULES_TO_SKIP=\!aws-java-sdk-osgi MAVEN_OPTS=-XX:MaxPermSize=256m
-   -  jdk: openjdk7
+    - jdk: openjdk7
       arch: ppc64le
-   -  jdk: oraclejdk7
+    - jdk: oraclejdk7
       arch: ppc64le
       
 notifications:
